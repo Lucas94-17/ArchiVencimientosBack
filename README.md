@@ -73,16 +73,15 @@ TZ=America/Argentina/Buenos_Aires
 
 ## 🗄️ Crear Base de Datos
 
-``` sql
 La Base de datos se crea por si sola , en el data-source con synchronize: true , sin embargo ,
 si el administrador avisa que hay migraciones , se las corre de las siguiente manera : 
-```
+
 ``` bash
 npm run migration:run
 ```
-```
+
 Con eso ya se corren las migraciones.
-```
+
 ------------------------------------------------------------------------
 
 ## ▶️ Ejecutar Servidor

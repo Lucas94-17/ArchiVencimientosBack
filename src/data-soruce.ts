@@ -19,4 +19,5 @@ export const AppDataSource = new DataSource({
 
   // logs para entender qué hace
   logging: false,
+  ssl: { rejectUnauthorized: false },
 });

@@ -10,7 +10,7 @@ export const AppDataSource = new DataSource({
   username: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-
+  ssl: { rejectUnauthorized: false },
   entities: [User, Product],
 
   // ✅ esto es lo que “crea tablas automáticamente”
@@ -19,5 +19,4 @@ export const AppDataSource = new DataSource({
 
   // logs para entender qué hace
   logging: false,
-  ssl: { rejectUnauthorized: false },
 });

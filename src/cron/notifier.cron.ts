@@ -40,7 +40,7 @@ export function startNotifierCron() {
           },
         ]);
 
-        // ✅ marcar como notificado (ACÁ estaba tu bug antes)
+        // ✅ marcar como notificado 
         await pool.query(
           `
           UPDATE products

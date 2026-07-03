@@ -38,4 +38,8 @@ export class Product {
   @Column({ type: "timestamptz", nullable: true })
   notified_at!: Date | null;
 
+  @Column({ type: "boolean", default: false })
+  is_deleted!: boolean; // ✨ Baja lógica: false = activo, true = eliminado lógicamente
+
 }
+

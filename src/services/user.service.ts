@@ -19,3 +19,14 @@ export async function getOrCreateUserByDeviceId(
 
   return created.rows[0].id;
 }
+
+export async function getUserId(deviceId:string) : Promise<number>{
+  const result = await pool.query(
+    "SELECT id FROM users WHERE device_id = $1",[deviceId]
+  );
+
+  if(result.rows.length === 0){
+     throw new Error("AUTH_MISSING_DEVICE: El deviceId no está registrado en el sistema.");
+  }
+  return result.rows[0].id;
+}

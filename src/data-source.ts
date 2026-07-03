@@ -10,13 +10,14 @@ export const AppDataSource = new DataSource({
   username: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  ssl: { rejectUnauthorized: false },
+  // ssl: { rejectUnauthorized: false },
   entities: [User, Product],
-
-  // ✅ esto es lo que “crea tablas automáticamente”
-  // ÚSALO SOLO EN DEV
+  ssl: process.env.DB_SSL === "true" ? { rejectUnauthorized: false } : false,
+  // ✅ En DEV: sincroniza automáticamente desde los entities
+  // En producción usaría migraciones con el plugin 'migrations'
   synchronize: false,
 
-  // logs para entender qué hace
+  // logs para entender qué hace (útil en DEV)
   logging: false,
 });
+
